@@ -150,6 +150,12 @@ nss-mdns
 -system-config-services
 -policycoreutils-gui
 
+@development-tools
+eclipse-cdt
+perf
+vim-enhanced
+emacs
+
 %end
 
 
