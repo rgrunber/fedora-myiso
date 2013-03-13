@@ -14,13 +14,14 @@ auth --useshadow --enablemd5
 selinux --disabled
 firewall --enabled --service=mdns
 xconfig --startxonboot
-part / --size 4096 --fstype ext4
+part / --size 7168 --fstype ext4
 services --enabled=NetworkManager --disabled=network,sshd
 
 #repo --name=rawhide --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=rawhide&arch=i386
 repo --name=fedora --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-18&arch=i386
 repo --name=updates --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f18&arch=i386
 #repo --name=updates-testing --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-f18&arch=i386
+repo --name=fedora-debuginfo --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-debug-18&arch=i386
 
 %packages
 @base-x
@@ -151,7 +152,9 @@ nss-mdns
 -policycoreutils-gui
 
 @development-tools
+kernel-debuginfo
 eclipse-cdt
+eclipse-pde
 perf
 vim-enhanced
 emacs
@@ -281,6 +284,7 @@ fi
 # add fedora user with no passwd
 action "Adding live user" useradd \$USERADDARGS -c "Live System User" liveuser
 passwd -d liveuser > /dev/null
+usermod -a -G stapdev,stapusr liveuser
 
 # turn off firstboot for livecd boots
 systemctl --no-reload disable firstboot-text.service 2> /dev/null || :
