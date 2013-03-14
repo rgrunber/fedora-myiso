@@ -22,6 +22,7 @@ repo --name=fedora --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo
 repo --name=updates --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f18&arch=i386
 #repo --name=updates-testing --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-f18&arch=i386
 repo --name=fedora-debuginfo --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-debug-18&arch=i386
+repo --name=local --baseurl=http://localhost/packages
 
 %packages
 @base-x
@@ -158,6 +159,8 @@ eclipse-pde
 perf
 vim-enhanced
 emacs
+
+eclipsecon-setup
 
 %end
 
