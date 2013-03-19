@@ -22,6 +22,7 @@ repo --name=fedora --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo
 repo --name=updates --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f18&arch=i386
 #repo --name=updates-testing --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-f18&arch=i386
 repo --name=fedora-debuginfo --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-debug-18&arch=i386
+repo --name=updates-debuginfo --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-debug-f18&arch=i386
 repo --name=local --baseurl=http://localhost/packages
 
 %packages
@@ -451,13 +452,6 @@ if [ -f /usr/share/applications/liveinst.desktop ]; then
 favorite-apps=['firefox.desktop', 'evolution.desktop', 'empathy.desktop', 'rhythmbox.desktop', 'shotwell.desktop', 'openoffice.org-writer.desktop', 'nautilus.desktop', 'anaconda.desktop']
 FOE
 
-  # Make the welcome screen show up
-  if [ -f /usr/share/anaconda/gnome/fedora-welcome.desktop ]; then
-    mkdir -p ~liveuser/.config/autostart
-    cp /usr/share/anaconda/gnome/fedora-welcome.desktop /usr/share/applications/
-    cp /usr/share/anaconda/gnome/fedora-welcome.desktop ~liveuser/.config/autostart/
-    chown -R liveuser:liveuser /home/liveuser/.config/
-  fi
 fi
 
 # rebuild schema cache with any overrides we installed
