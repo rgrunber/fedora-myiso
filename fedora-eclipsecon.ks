@@ -17,12 +17,12 @@ xconfig --startxonboot
 part / --size 7168 --fstype ext4
 services --enabled=NetworkManager --disabled=network,sshd
 
-#repo --name=rawhide --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=rawhide&arch=i386
-repo --name=fedora --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-18&arch=i386
-repo --name=updates --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f18&arch=i386
-#repo --name=updates-testing --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-f18&arch=i386
-repo --name=fedora-debuginfo --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-debug-18&arch=i386
-repo --name=updates-debuginfo --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-debug-f18&arch=i386
+#repo --name=rawhide --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=rawhide&arch=$basearch
+repo --name=fedora --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-18&arch=$basearch
+repo --name=updates --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f18&arch=$basearch
+#repo --name=updates-testing --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-f18&arch=$basearch
+repo --name=fedora-debuginfo --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-debug-18&arch=$basearch
+repo --name=updates-debuginfo --mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-debug-f18&arch=$basearch
 repo --name=local --baseurl=http://localhost/packages
 
 %packages
