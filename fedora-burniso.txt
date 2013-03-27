@@ -1,0 +1,5 @@
+# macbook
+livecd-iso-to-disk --reset-mbr --format --efi --overlay-size-mb 1500 --swap-size-mb 250 ISO PARTITION
+
+# normal
+livecd-iso-to-disk --reset-mbr --format --overlay-size-mb 1500 --swap-size-mb 250 ISO PARTITION

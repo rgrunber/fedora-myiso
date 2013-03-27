@@ -5,7 +5,7 @@ if [ ! $# -eq 2 ]; then
 	exit 1
 fi
 if [ ! -e $1 ]; then
-	echo "Kickstart file $1 is not valid. "
+	echo "Kickstart file $1 is not valid."
 	exit 1
 fi
 
