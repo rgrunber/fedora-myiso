@@ -290,6 +290,11 @@ action "Adding live user" useradd \$USERADDARGS -c "Live System User" liveuser
 passwd -d liveuser > /dev/null
 usermod -a -G stapdev,stapusr liveuser
 
+# Copy over eclipse user data and workspace
+#cp -rp /usr/share/java/eclipsecon-setup/workspace /home/liveuser/
+#cp -rp /usr/share/java/eclipsecon-setup/.eclipse /home/liveuser/
+#chown -R liveuser:liveuser /home/liveuser/workspace /home/liveuser/.eclipse
+
 # turn off firstboot for livecd boots
 systemctl --no-reload disable firstboot-text.service 2> /dev/null || :
 systemctl --no-reload disable firstboot-graphical.service 2> /dev/null || :
